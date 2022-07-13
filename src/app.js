@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const mongoDbConfig = require('./config/mongodb.config')
 const router = require('./routes')
 
@@ -12,6 +13,7 @@ mongoDbConfig()
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cors())
 
 app.use('/', router)
 
