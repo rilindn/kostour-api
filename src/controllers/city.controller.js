@@ -9,9 +9,9 @@ const getAllCities = async (req, res) => {
   }
 }
 
-const getCityByName = async (req, res) => {
+const getCityBySlug = async (req, res) => {
   try {
-    const city = await Admin.find({ name: req.params.name })
+    const city = await City.findOne({ slug: req.params.slug })
     return res.send(city)
   } catch (error) {
     return res.status(500).send(error)
@@ -50,4 +50,4 @@ const deleteCity = async (req, res) => {
   }
 }
 
-module.exports = { getAllCities, getCityByName, registerCity, updateCity, deleteCity }
+module.exports = { getAllCities, getCityBySlug, registerCity, updateCity, deleteCity }

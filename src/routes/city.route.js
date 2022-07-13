@@ -5,7 +5,7 @@ const CityRouter = express.Router()
 
 CityRouter.get('/', CityController.getAllCities)
 
-CityRouter.get('/:name', CityController.getCityByName)
+CityRouter.get('/:slug', CityController.getCityBySlug)
 
 CityRouter.post('/', CityController.registerCity)
 
