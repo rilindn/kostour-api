@@ -1,6 +1,17 @@
 const mongoose = require('mongoose')
 
-var CitySchema = new mongoose.Schema(
+const PlacesSchema = new mongoose.Schema(
+  {
+    name: { type: String },
+    description: { type: String },
+    image: { type: String },
+  },
+  {
+    timestamps: true,
+  },
+)
+
+const CitySchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -11,6 +22,10 @@ var CitySchema = new mongoose.Schema(
       required: true,
     },
     coverImage: {
+      type: String,
+      required: true,
+    },
+    emblem: {
       type: String,
       required: true,
     },
@@ -34,6 +49,7 @@ var CitySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    places: [PlacesSchema],
   },
   {
     timestamps: true,
